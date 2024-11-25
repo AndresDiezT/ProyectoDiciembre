@@ -1,25 +1,25 @@
 --CREATE DATABASE ProyectoDiciembre
 
-CREATE TABLE TipoIdentificacion (
-	id INT IDENTITY(1, 101) PRIMARY KEY,
-	tipoIdentificacion VARCHAR(3) NOT NULL
+CREATE TABLE TiposDocumento (
+	Id INT IDENTITY(1, 101) PRIMARY KEY,
+	Title VARCHAR(4) NOT NULL
 )
 
 CREATE TABLE Personas (
-	id INT IDENTITY(1, 1) PRIMARY KEY,
-	nombres VARCHAR(50) NOT NULL,
-	apellidos VARCHAR(50) NOT NULL,
-	numeroIdentificacion VARCHAR(10) NOT NULL,
-	email VARCHAR(50) NOT NULL,
-	fechaCreacion DATETIME DEFAULT GETDATE(),
-	tipoDocumento VARCHAR(3) NOT NULL,
+	Id INT IDENTITY(1, 1) PRIMARY KEY,
+	Nombre VARCHAR(50) NOT NULL,
+	Apellido	 VARCHAR(50) NOT NULL,
+	NumeroIdentificacion VARCHAR(10) NOT NULL,
+	Email VARCHAR(50) NOT NULL,
+	FechaCreacion DATETIME DEFAULT GETDATE(),
+	TipoDocumentoId INT NOT NULL,
 
-	FOREIGN KEY (tipoDocumento) REFERENCES TipoIdentificacion(id)
+	FOREIGN KEY (TipoDocumento) REFERENCES TipoIdentificacion(Id)
 )
 
 CREATE TABLE Usuarios (
-	id INT IDENTITY(1, 1) PRIMARY KEY,
-	usuario INT
-	pass VARCHAR()
-	fechaCreacion DATETIME DEFAULT GETDATE()
+	Id INT IDENTITY(1, 1) PRIMARY KEY,
+	Usuario INT NOT NULL,
+	Pass VARCHAR(150) NOT NULL,
+	FechaCreacion DATETIME DEFAULT GETDATE()
 )
